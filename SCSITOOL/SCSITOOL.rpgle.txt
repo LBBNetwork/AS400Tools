@@ -1,0 +1,51 @@
+FASPTEST   UF A E             DISK                                        
+FSCSITEST  CF   E             WORKSTN                                     
+DLOOPNUM          S              4P 0                                     
+DINNUM            S              4P 0                                     
+DTESTDTA          C                   CONST('123456789012345678901234567 +
+D                                            123456789012345678901234567 +
+D                                            123456789012345678901234567 +
+D                                            123456789012345678901234567 +
+D                                            123456789012345678901234567 +
+D                                            123456789012345678901234567 +
+D                                            123456789012345678901234567 +
+D                                            123456789012345678901234567 +
+D                                            123456789012345678901234567 +
+D                                            123456789012345678901234567 +
+D                                            123456789012345678901234567 +
+D                                            123456789012345678901234567 +
+D                                            123456789012345678901234567 +
+D                                            123456789012345678901234567 +
+D                                            123456789012345678901234567')
+DSUCCESSM         C                   CONST('Success!') 
+C                   EVAL      LOOPNUM = 1               
+C                   EXFMT     SCSIMAIN                  
+C                   MOVEL     NUMCPY        INNUM       
+C                                                       
+C                   IF        *IN12 = *ON               
+C                   EXSR      DIE                       
+C                   ENDIF                               
+C                                                       
+C*    *LOVAL        SETLL     SCSIREC                   
+C                   READ      SCSIREC                                70
+C                                                                      
+C                   MOVEL     0             SEQ                        
+C                   MOVEL     'TEST'        DATA                       
+C                   WRITE     SCSIREC                                  
+C                                                                      
+C                   EVAL      LOOPNUM = 1                              
+C                                                                      
+C                   DOW       LOOPNUM <> INNUM                         
+C                   MOVEL     LOOPNUM       SEQ                        
+C                   MOVEL     TESTDTA       DATA    
+C                   WRITE     SCSIREC               
+C                   ADD       1             LOOPNUM 
+C                   ENDDO                           
+C                                                   
+C     SUCCESSM      DSPLY                           
+C                   EXSR      DIE                   
+C                                                   
+C     DIE           BEGSR                           
+C                   MOVEL     *ON           *INLR   
+C                   RETURN 
+C                   ENDSR  

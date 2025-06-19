@@ -1,0 +1,20 @@
+     A*%%TS  SD  20250618  085640  QSECOFR     REL-V6R1M0  5761-WDS             
+     A*%%EC                                                                     
+     A                                      DSPSIZ(24 80 *DS3)                  
+     A          R SCSIMAIN                                                      
+     A*%%TS  SD  20250618  085640  QSECOFR     REL-V6R1M0  5761-WDS             
+     A                                      CF12(12 'cancel')                   
+     A                                  1  3'AS/400 Test Program for SCSI DASD -
+     A                                      Emulator'                           
+     A                                  4  3'Writes 0 - n copies of a test stri-
+     A                                      ng to disk,'                        
+     A                                  5  3'then deletes those strings from di-
+     A                                      sk'                                 
+     A                                  8  3'How many copies?'                  
+     A                                  8 28'(Max 9999)'                        
+     A                                 14 28'ENTER to begin'                    
+     A                                 15 28'F12 to exit w/o running test'      
+     A                                 20  4'Written 2025, snowkitty of the Cru-
+     A                                      sty Computer Club'                  
+     A            NUMCPY         4D  I  8 22                                    
+     A            OUTRESLT      25A  O 17 29
